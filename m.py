@@ -7,10 +7,10 @@ import datetime
 import os
 
 # insert your Telegram bot token here
-bot = telebot.TeleBot('7689415763:AAG_DldsGsfqrPTbdnueqsykrEht9_j4d0Y')
+bot = telebot.TeleBot('8553510328:AAFxxdFolFeENkg1stU24Y8QeE8geTHhfAc')
 
 # Admin user IDs
-admin_id = ["7115841620"]
+admin_id = ["6931353821"]
 
 # File to store allowed user IDs
 USER_FILE = "users.txt"
@@ -285,8 +285,8 @@ def show_help(message):
 🤖 To See Admin Commands:
 💥 /admincmd : Shows All Admin Commands.
 
-Buy From :- @Manish8x
-Official Channel :- t.me/manishsingh1000
+Buy From :- @S1danger
+Official Group :- https://t.me/+ypPAYrI2VAI2NTZl
 '''
     for handler in bot.message_handlers:
         if hasattr(handler, 'commands'):
@@ -301,9 +301,10 @@ Official Channel :- t.me/manishsingh1000
 @bot.message_handler(commands=['start'])
 def welcome_start(message):
     user_name = message.from_user.first_name
-    response = f'''🔆WELCOME {user_name} TO DANGER DDOS BOT🔆
-🤖Try To Run This Command : /help 
-✅Join :- https://t.me/+ypPAYrI2VAI2NTZl'''
+    response = f'''*🔆WELCOME {fullname} TO DDOS BOT🔆*
+                    🤖Try To Run This Command : /help 
+                    
+                     ✅Join :- https://t.me/+ypPAYrI2VAI2NTZl'''
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['rules'])
