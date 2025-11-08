@@ -1,6 +1,0 @@
-UserID: 7115841620 | Time: 2025-11-04 19:37:22.686847 | Command: /bgmi | Target: 52.140.12.129 | Port: 10630 | Time: 10
-Username: @S1danger
-Target: 52.140.12.129
-Port: 10630
-Time: 10
-
