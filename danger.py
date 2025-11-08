@@ -271,7 +271,7 @@ def send_welcome(message):
 
     welcome_message = (
         f"🔆WELCOME TO DANGER DDOS BOT🔆@{username}\n\n"
-        f"Join Group:- t.me/+rxtlPZ10biFhODM1"
+        f"Join Group:- t.me/+rxtlPZ10biFhODM1\n\n"
         f"Please choose an option below to continue."
     )
 
