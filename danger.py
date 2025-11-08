@@ -234,11 +234,11 @@ def start_asyncio_thread():
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 
 # Button labels
-BTN_ATTACK = "Attack 🚀"
-BTN_ACCOUNT = "My Account🏦"
-BTN_REDEEM = "Redeem 🔑"
-BTN_REMOVE_USER = "Remove User ❌"
-BTN_HELP = "Ownerℹ️"
+BTN_ATTACK = "Attack🚀"
+BTN_ACCOUNT = "My Plan🏦"
+BTN_REDEEM = "🔑Redeem🔑"
+BTN_REMOVE_USER = "Remove User❌"
+BTN_HELP = "♻️Get Access♻️"
 
 # Welcome message and buttons when the user sends /start command
 @bot.message_handler(commands=['start'])
@@ -338,10 +338,10 @@ def echo_message(message):
         if text_norm == normalize_text(BTN_HELP):
             bot.send_message(
         chat_id,
-        "*💎 BGMI DDOS PRICE PLANS 💎*\n\n"
+        "💎 BGMI DDOS PRICE PLANS 💎\n\n"
         "🥉 Basic Plan - 7 Days = ₹200\n"
         "🥈 Pro Plan - 30 Days = ₹500\n"
-        "🥇 Pro Plan - 60 Days = 950\n\n"
+        "🥇 Pro Plan - 60 Days = 950\n"
         "🥇 Ultimate Plan - 365 Days = 2000\n\n"
         "💬 Contact Owner: @S1DANGER",
         parse_mode='Markdown'
@@ -352,7 +352,7 @@ def echo_message(message):
            
 
         # default fallback
-        bot.send_message(message.chat.id, "💬 Buy Premium Direct Owner: @S1DANGER")
+        bot.send_message(message.chat.id, "💬Get Access Direct Owner: @S1DANGER💬")
     except Exception as e:
         logging.error(f"Error in echo_message: {e}")
 
