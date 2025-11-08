@@ -317,7 +317,7 @@ def echo_message(message):
         if text_norm == normalize_text(BTN_REDEEM):
             # If admin pressed Redeem -> treat as admin "generate key" flow
             if is_user_admin(user_id):
-                bot.send_message(chat_id, "*Enter target_user_id and days separated by a space (e.g. 12345678 30) to generate a redeem key for that user.*", parse_mode='Markdown')
+                bot.send_message(chat_id, "*Enter target_user_id and days(e.g.12345678 30)*", parse_mode='Markdown')
                 bot.register_next_step_handler(message, handle_admin_generate_key)
                 return
             else:
