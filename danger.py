@@ -85,7 +85,7 @@ def check_user_approval(user_id):
 
 # Send a not approved message
 def send_not_approved_message(chat_id):
-    bot.send_message(chat_id, "🔐You Are Not Authorized🔐", parse_mode='Markdown')
+    bot.send_message(chat_id, "*You Are Not Authorized ⚠*", parse_mode='Markdown')
 
 # Helper: generate key (used by /genkey and admin redeem button flow)
 def generate_unique_key_for_user(target_user_id, days):
@@ -234,11 +234,11 @@ def start_asyncio_thread():
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 
 # Button labels
-BTN_ATTACK = "Attack🚀"
+BTN_ATTACK = "Attack 🚀"
 BTN_ACCOUNT = "My Account🏦"
-BTN_REDEEM = "🔑Redeem🔑"
-BTN_REMOVE_USER = "Remove User❌"
-BTN_HELP = "⚙️Get Access🔐"
+BTN_REDEEM = "Redeem 🔑"
+BTN_REMOVE_USER = "Remove User ❌"
+BTN_HELP = "Ownerℹ️"
 
 # Welcome message and buttons when the user sends /start command
 @bot.message_handler(commands=['start'])
@@ -322,26 +322,27 @@ def echo_message(message):
                 return
             else:
                 # Normal user pressed Redeem -> prompt for their redeem key
-                bot.send_message(chat_id, "*Please enter your redeem key:*", parse_mode='Markdown')
+                bot.send_message(chat_id, "Please Enter Your Redeem Key", parse_mode='Markdown')
                 bot.register_next_step_handler(message, handle_user_redeem_input)
                 return
 
 
         if text_norm == normalize_text(BTN_REMOVE_USER):
             if not is_user_admin(user_id):
-                bot.send_message(chat_id, "*You Are Not Authorized ⚠*", parse_mode='Markdown')
+                bot.send_message(chat_id, "🔐You Are Not Authorized🔐", parse_mode='Markdown')
                 return
-            bot.send_message(chat_id, "*Enter the user_id to remove (e.g. 12345678):*", parse_mode='Markdown')
+            bot.send_message(chat_id, "*Enter user_id*", parse_mode='Markdown')
             bot.register_next_step_handler(message, handle_admin_remove_user)
             return
 
         if text_norm == normalize_text(BTN_HELP):
             bot.send_message(
         chat_id,
-        "*💎 PRICE PLANS 💎*\n\n"
-        "🥉 Basic Plan - 7 Days = ₹50\n"
-        "🥈 Pro Plan - 30 Days = ₹200\n"
-        "🥇 Ultimate Plan - 60 Days = ₹350\n\n"
+        "*💎 BGMI DDOS PRICE PLANS 💎*\n\n"
+        "🥉 Basic Plan - 7 Days = ₹200\n"
+        "🥈 Pro Plan - 30 Days = ₹500\n"
+        "🥇 Pro Plan - 60 Days = 950\n\n"
+        "🥇 Ultimate Plan - 365 Days = 2000\n\n"
         "💬 Contact Owner: @S1DANGER",
         parse_mode='Markdown'
     )
@@ -351,7 +352,7 @@ def echo_message(message):
            
 
         # default fallback
-        bot.send_message(message.chat.id, "💬Buy Premium Direct Owner: @S1DANGER")
+        bot.send_message(message.chat.id, "💬 Buy Premium Direct Owner: @S1DANGER")
     except Exception as e:
         logging.error(f"Error in echo_message: {e}")
 
@@ -362,7 +363,7 @@ def handle_admin_generate_key(message):
     user_id = message.from_user.id
     # double-check admin
     if not is_user_admin(user_id):
-        bot.send_message(chat_id, "*You Are Not Authorized ⚠*", parse_mode='Markdown')
+        bot.send_message(chat_id, "*⚠You Are Not Authorized⚠*", parse_mode='Markdown')
         return
 
     text = message.text.strip()
@@ -374,7 +375,7 @@ def handle_admin_generate_key(message):
         target_user_id = int(parts[0])
         days = int(parts[1])
     except ValueError:
-        bot.send_message(chat_id, "*Invalid arguments. user_id and days must be integers.*", parse_mode='Markdown')
+        bot.send_message(chat_id, "*Invalid. user_id and days must be integers.*", parse_mode='Markdown')
         return
 
     unique_key, valid_until = generate_unique_key_for_user(target_user_id, days)
@@ -391,7 +392,7 @@ def handle_admin_remove_user(message):
     user_id = message.from_user.id
     # double-check admin
     if not is_user_admin(user_id):
-        bot.send_message(chat_id, "*You Are Not Authorized ⚠*", parse_mode='Markdown')
+        bot.send_message(chat_id, "*⚠You Are Not Authorized ⚠*", parse_mode='Markdown')
         return
 
     text = message.text.strip()
